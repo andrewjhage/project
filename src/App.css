@@ -2,15 +2,23 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.meeting-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.meetings_container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -22,6 +30,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  height: 200px;
 }
 
 .App-link {
