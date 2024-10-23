@@ -1,10 +1,21 @@
 /** @format */
+import React, {useState} from "react";
+import "./App.css";
 
-const MeetingCard = () => {
+const MeetingCard = ({meeting}) => {
+    const [showModal, setShowModal] = useState(false);
+
+    const handleOpenModal = () => {
+        setShowModal(true);
+    };
+    
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
     return (
         <div className="meeting-card">
             <img
-                alt="purduepete"
+                alt="purdue pete"
                 src="purduepete.jpg"
                 style={{
                     padding: "10px 20px",
@@ -14,8 +25,21 @@ const MeetingCard = () => {
                     width: "50px",
                 }}
             />
-            <h2>Meeting Information</h2>
-            <button>Show Parking Info</button>
+            <h3>{meeting.topic}</h3>
+            <p>{meeting.dateTime}</p>
+            <p>{meeting.location}</p>
+
+            <button onClick={handleOpenModal}>Show Parking Info</button>
+
+            {showModal && (
+                <div className="modal-overlay" onClick={handleCloseModal}>
+                    <div className="modal" onClick={(e) => e.stopPropagation()}>
+                        <h4>Parking Information</h4>
+                        <p>{meeting.parking}</p>
+                        <button onClick={handleCloseModal}>Close</button>
+                    </div>
+                </div>
+            )}  
         </div>
     );
 };
